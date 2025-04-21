@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exception Handling Examples</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #E69DB8;
+      padding: 30px;
+    }
+    .code-block {
+      background-color: #C68EFD;
+      color:black;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #007074;
+    }
+    br {
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. Exception: Undeclared Variable</h2>
+  <div class="code-block">
+try {<br>
+    console.log(myVar); // myVar is not declared<br>
+} catch (error) {<br>
+    console.log("Error caught: " + error.message);<br>
+}
+  </div>
+
+  <h2>2. Throw Divide by Zero Error</h2>
+  <div class="code-block">
+function divide(a, b) {<br>
+    if (b === 0) {<br>
+        throw new Error("Divide by zero error!");<br>
+    }<br>
+    return a / b;<br>
+}<br><br>
+
+try {<br>
+    console.log(divide(10, 0));<br>
+} catch (error) {<br>
+    console.log("Error caught: " + error.message);<br>
+}
+  </div>
+
+  <h2>3. Throw Out of Bound Error</h2>
+  <div class="code-block">
+function getElement(arr, index) {<br>
+    if (index >= arr.length || index &lt; 0) {<br>
+        throw new Error("Out of bounds error!");<br>
+    }<br>
+    return arr[index];<br>
+}<br><br>
+
+try {<br>
+    let numbers = [1, 2, 3];<br>
+    console.log(getElement(numbers, 5));<br>
+} catch (error) {<br>
+    console.log("Error caught: " + error.message);<br>
+}
+  </div>
+
+  <h2>4. Exception Handling with Finally</h2>
+  <div class="code-block">
+try {<br>
+    let result = 10 / 0;<br>
+    if (!isFinite(result)) {<br>
+        throw new Error("Division by zero");<br>
+    }<br>
+    console.log("Result:", result);<br>
+} catch (error) {<br>
+    console.log("Caught error:", error.message);<br>
+} finally {<br>
+    console.log("This block always executes (finally).");<br>
+}
+  </div>
+
+</body>
+</html>
